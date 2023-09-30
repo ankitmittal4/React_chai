@@ -4,6 +4,8 @@ import App from "./App.jsx";
 function MyApp() {
   return (
     <>
+      <App />
+      <h1>Custom React !!!</h1>
       <h1>Custom React !!!</h1>
     </>
   );
