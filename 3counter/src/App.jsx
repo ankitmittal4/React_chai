@@ -7,11 +7,15 @@ function App() {
   let [counter, setCounter] = useState(1);
   const incValue = () => {
     setCounter(counter + 1);
+    setCounter(counter + 1);
+    setCounter(counter + 1);
+    // setCounter((prevCounter) => prevCounter + 1);
+    // setCounter((prevCounter) => prevCounter + 1);
+    // setCounter((prevCounter) => prevCounter + 1);
     if (counter >= 10) {
       alert("Reached Max limit");
       setCounter(10);
     }
-    // console.log("counter Increased", counter);
   };
   const decValue = () => {
     setCounter(counter - 1);
