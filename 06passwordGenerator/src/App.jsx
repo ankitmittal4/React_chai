@@ -24,6 +24,14 @@ function App() {
     passwordGenerator();
   }, [length, numAllowed, charAllowed, passwordGenerator]);
 
+  const passwordRef = useRef(null);
+
+  const copyPasswordToClipboard = useCallback(() => {
+    passwordRef.current?.select();
+    // passwordRef.current?.setSelectionRange(0, 4);
+    window.navigator.clipboard.writeText(password);
+  }, [password]);
+
   return (
     <>
       <div className="w-full max-w-lg mx-auto shadow-md rounded-lg px-4 my-8 text-orange-500 bg-gray-500">
@@ -50,6 +58,8 @@ function App() {
               max={50}
               value={length}
               className="cursor-pointer"
+              ref={passwordRef}
+              onClick={copyPasswordToClipboard}
               onChange={(e) => {
                 setLength(e.target.value);
               }}
