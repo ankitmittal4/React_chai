@@ -4,6 +4,7 @@ import "./App.css";
 
 function App() {
   const [length, setLength] = useState(8);
+  const [btnColor, setBtnColor] = useState();
   const [numAllowed, setNumAllowed] = useState(false);
   const [charAllowed, setCharAllowed] = useState(false);
   const [password, setPassword] = useState("");
@@ -30,11 +31,15 @@ function App() {
     passwordRef.current?.select();
     // passwordRef.current?.setSelectionRange(0, 4);
     window.navigator.clipboard.writeText(password);
+    setBtnColor("rgb(91, 91, 255)");
+    setTimeout(() => {
+      setBtnColor("blue");
+    }, 85);
   }, [password]);
 
   return (
     <>
-      <div className="w-full mx-auto shadow-md rounded-lg px-4 py-3 my-8 bg-gray-800 text-orange-500 text-2xl box">
+      <div className="w-full mx-auto shadow-md rounded-lg px-4 py-3 my-8 bg-gray-800 text-orange-500 text-2xl box mt-20">
         <h1 className="text-white text-center my-7 mt-4 text-3xl">
           Password Generator
         </h1>
@@ -50,6 +55,7 @@ function App() {
           <button
             onClick={copyPasswordToClipboard}
             className="outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0 pb-2 "
+            style={{ backgroundColor: btnColor }}
           >
             copy
           </button>
@@ -77,7 +83,7 @@ function App() {
               type="checkbox"
               defaultChecked={numAllowed}
               id="numberInput"
-              className="cursor-pointer"
+              className="cursor-pointer w-5 h-5"
               onChange={() => {
                 setNumAllowed((prev) => !prev);
               }}
@@ -89,7 +95,7 @@ function App() {
               type="checkbox"
               defaultChecked={charAllowed}
               id="charInput"
-              className="cursor-pointer"
+              className="cursor-pointer w-5 h-5"
               onChange={() => {
                 setCharAllowed((prev) => !prev);
               }}
