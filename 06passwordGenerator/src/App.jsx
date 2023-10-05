@@ -70,7 +70,6 @@ function App() {
               value={length}
               className="cursor-pointer"
               ref={passwordRef}
-              onClick={copyPasswordToClipboard}
               onChange={(e) => {
                 setLength(e.target.value);
               }}
