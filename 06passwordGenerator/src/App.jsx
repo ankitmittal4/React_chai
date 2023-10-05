@@ -34,22 +34,27 @@ function App() {
 
   return (
     <>
-      <div className="w-full max-w-lg mx-auto shadow-md rounded-lg px-4 my-8 text-orange-500 bg-gray-500">
-        <h1 className="text-white text-center text-4xl my-3">
+      <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 bg-gray-800 text-orange-500 text-2xl">
+        <h1 className="text-white text-center my-6 mt-0 text-3xl">
           Password Generator
         </h1>
-        <div className="flex  rounded-lg overflow-hidden mb-4">
+        <div className="flex shadow rounded-lg overflow-hidden mb-8">
           <input
             type="text"
             value={password}
-            className="outline-none w-full py-1 px-3 my-3 rounded-lg text-3xl"
+            className="outline-none w-full py-1 px-3"
             placeholder="Password"
             readOnly
+            ref={passwordRef}
           />
-          <button className="bg-blue-700 h-9 text-white outline-none px-3 py-0.5 shrink-0">
-            Copy
+          <button
+            onClick={copyPasswordToClipboard}
+            className="outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0 pb-2 "
+          >
+            copy
           </button>
         </div>
+
         <div className="flex text-sm gap-x-2">
           <div className="flex items-center gap-x-1">
             <input
