@@ -1,11 +1,15 @@
 import { useState } from "react";
 import "./App.css";
+import UserContextProvider from "./context/UserContextProvider";
+import Login from "./components/login";
+import Profile from "./components/Profile";
 
 function App() {
   return (
-    <>
-      <h1>Ankit</h1>
-    </>
+    <UserContextProvider>
+      <Login />
+      <Profile />
+    </UserContextProvider>
   );
 }
 
